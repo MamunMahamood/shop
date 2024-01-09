@@ -1,0 +1,26 @@
+<div>
+<% if notice.present? %>
+  <p id="notice">
+    <%= notice %>
+  </p>
+<% end %>
+
+<h1>
+  Your Pragmatic Catalog
+</h1>
+
+<ul>
+  <% @products.each do |product| %>
+    <li>
+      <div>
+        <h2><%= product.title %></h2>
+        <div>
+        <%= number_to_currency(product.price) %>
+        <%= button_to 'Add to Cart',
+        line_items_path(product_id: product) %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
+</div>
